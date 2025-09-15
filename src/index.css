@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark-themed portfolio design system */
+@layer base {
+  :root {
+    /* Dark theme colors */
+    --background: 222 47% 11%;
+    --foreground: 0 0% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 280 100% 65%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 222 47% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 222 47% 16%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 280 100% 65%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 222 47% 16%;
+    --input: 222 47% 16%;
+    --ring: 280 100% 65%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradient colors */
+    --gradient-start: 280 100% 65%;
+    --gradient-end: 20 100% 65%;
+    
+    /* Portfolio specific colors */
+    --hero-gradient: linear-gradient(135deg, hsl(280 100% 65%), hsl(20 100% 65%));
+    --text-gradient: linear-gradient(135deg, hsl(280 100% 65%), hsl(20 100% 65%));
+    --nav-hover: 280 100% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-button {
+    background: var(--hero-gradient);
+    transition: all 0.3s ease;
+  }
+
+  .gradient-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px hsl(280 100% 65% / 0.4);
+  }
+
+  .nav-link {
+    @apply relative transition-colors duration-300 hover:text-accent;
+  }
+
+  .nav-link.active::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-full h-0.5 bg-accent;
+  }
+
+  .hero-section {
+    background: radial-gradient(ellipse at center, hsl(222 47% 13%) 0%, hsl(222 47% 11%) 100%);
+  }
+}
